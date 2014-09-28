@@ -1,0 +1,15 @@
+{% extends 'BfxmplBudgetBundle:CompteComptable:comptecomptable.html.twig' %}
+
+{% block body -%}
+    <h2>Création</h2>
+
+    {{ form(form) }}
+
+    <br/>
+
+    <button type="button" class="btn btn-default btn-default">
+        <a href="{{ path('comptecomptable') }}">
+            <span class="glyphicon glyphicon-chevron-left" /> Retour
+        </a>
+    </button>
+{% endblock %}

@@ -2,17 +2,17 @@
 
 {% block menu %}
     {{ parent() }}
-    <li class="active">
+    <li>
         <a href="{{ url('comptebancaire') }}"><span class="glyphicon glyphicon-list"> Compte Bancaire</span></a>
     </li>
-    <li>
+    <li class="active">
         <a href="{{ url('comptecomptable') }}"><span class="glyphicon glyphicon-list"> Compte Comptable</span></a>
     </li>
 {% endblock %}
 
 {% block breadcrumb %}
     <li><a href="{{ url('homepage') }}">Accueil</a></li>
-    <li class="active">Compte Bancaire</li>
+    <li class="active">Compte Comptable</li>
 {% endblock %}
 
-{% block pagetitle %}Compte Bancaire{% endblock %}
+{% block pagetitle %}Compte Comptable{% endblock %}
