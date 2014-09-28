@@ -1,0 +1,45 @@
+{% extends 'BfxmplBudgetBundle:CompteBancaire:comptebancaire.html.twig' %}
+
+{% block body -%}
+    <div class="panel panel-default">
+        <div class="panel-heading">Liste des comptes bancaires</div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Libelle</th>
+                    <th>Banque</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('comptebancaire_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                        <td>{{ entity.libelle }}</td>
+                        <td>{{ entity.banque }}</td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-default">
+                                <a href="{{ path('comptebancaire_show', { 'id': entity.id }) }}">
+                                    <span class="glyphicon glyphicon-eye-open" /> Voir
+                                </a>
+                            </button>
+                            <button type="button" class="btn btn-default btn-default">
+                                <a href="{{ path('comptebancaire_edit', { 'id': entity.id }) }}">
+                                    <span class="glyphicon glyphicon-pencil" /> Modifier
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <button type="button" class="btn btn-default btn-default">
+        <a href="{{ path('comptebancaire_new') }}">
+            <span class="glyphicon glyphicon-plus" /> Ajouter
+        </a>
+    </button>
+{% endblock %}

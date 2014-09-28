@@ -1,0 +1,34 @@
+{% extends 'BfxmplBudgetBundle:CompteBancaire:comptebancaire.html.twig' %}
+
+{% block body -%}
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ entity.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Banque</th>
+                <td>{{ entity.banque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-default btn-default">
+        <a href="{{ path('comptebancaire') }}">
+            <span class="glyphicon glyphicon-chevron-left" /> Retour
+        </a>
+    </button>
+
+    <button type="button" class="btn btn-default btn-default">
+        <a href="{{ path('comptebancaire_edit', { 'id': entity.id }) }}">
+            <span class="glyphicon glyphicon-pencil" /> Modifier
+        </a>
+    </button>
+
+    {{ form(delete_form) }}
+{% endblock %}

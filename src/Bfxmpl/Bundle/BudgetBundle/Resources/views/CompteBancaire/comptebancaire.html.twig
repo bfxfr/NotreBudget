@@ -1,12 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block menu %}
+    {{ parent() }}
     <li class="active">
-        <a href="{{ url('homepage') }}"><span class="glyphicon glyphicon-home"> Accueil</span></a>
-    </li>
-    <li>
         <a href="{{ url('comptebancaire') }}"><span class="glyphicon glyphicon-list"> Compte Bancaire</span></a>
     </li>
 {% endblock %}
 
-{% block pagetitle %}Bienvenue !!{% endblock %}
+{% block breadcrumb %}
+    <li><a href="{{ url('homepage') }}">Accueil</a></li>
+    <li class="active">Compte Bancaire</li>
+{% endblock %}
+
+{% block pagetitle %}Compte Bancaire{% endblock %}
