@@ -1,0 +1,5 @@
+bfxmpl_budget:
+    resource: "@BfxmplBudgetBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
