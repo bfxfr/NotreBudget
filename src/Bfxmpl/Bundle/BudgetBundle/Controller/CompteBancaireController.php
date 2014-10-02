@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Bfxmpl\Bundle\BudgetBundle\Entity\CompteBancaire;
-use Bfxmpl\Bundle\BudgetBundle\Form\CompteBancaireType;
+use Bfxmpl\Bundle\BudgetBundle\Form\Type\CompteBancaireType;
 
 /**
  * CompteBancaire controller.

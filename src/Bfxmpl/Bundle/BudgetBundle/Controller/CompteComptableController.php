@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Bfxmpl\Bundle\BudgetBundle\Entity\CompteComptable;
-use Bfxmpl\Bundle\BudgetBundle\Form\CompteComptableType;
+use Bfxmpl\Bundle\BudgetBundle\Form\Type\CompteComptableType;
 
 /**
  * CompteComptable controller.

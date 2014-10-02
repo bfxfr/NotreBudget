@@ -1,6 +1,6 @@
 <?php
 
-namespace Bfxmpl\Bundle\BudgetBundle\Form;
+namespace Bfxmpl\Bundle\BudgetBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
