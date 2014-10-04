@@ -1,0 +1,49 @@
+{% extends 'BfxmplBudgetBundle:Ecriture:ecriture.html.twig' %}
+
+{% block body -%}
+    <div class="panel panel-default">
+        <div class="panel-heading">Liste des ecritures</div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Date</th>
+                <th>Montant</th>
+                <th>Sens</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('ecriture_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.libelle }}</td>
+                    <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ entity.montant }}</td>
+                    <td>{{ entity.sens }}</td>
+                    <td>
+                        <button type="button" class="btn btn-default btn-default">
+                            <a href="{{ path('ecriture_show', { 'id': entity.id }) }}">
+                                <span class="glyphicon glyphicon-eye-open" /> Voir
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-default btn-default">
+                            <a href="{{ path('ecriture_edit', { 'id': entity.id }) }}">
+                                <span class="glyphicon glyphicon-pencil" /> Modifier
+                            </a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <button type="button" class="btn btn-default btn-default">
+        <a href="{{ path('ecriture_new') }}">
+            <span class="glyphicon glyphicon-plus" /> Ajouter
+        </a>
+    </button>
+{% endblock %}

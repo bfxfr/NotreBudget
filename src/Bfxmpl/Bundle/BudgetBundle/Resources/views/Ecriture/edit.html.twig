@@ -1,0 +1,15 @@
+{% extends 'BfxmplBudgetBundle:Ecriture:ecriture.html.twig' %}
+
+{% block body -%}
+    <h2>Modification</h2>
+
+    {{ form(edit_form) }}
+    {{ form(delete_form) }}
+
+    <button type="button" class="btn btn-default btn-default">
+        <a href="{{ path('ecriture') }}">
+            <span class="glyphicon glyphicon-chevron-left" /> Retour
+        </a>
+    </button>
+    </ul>
+{% endblock %}
