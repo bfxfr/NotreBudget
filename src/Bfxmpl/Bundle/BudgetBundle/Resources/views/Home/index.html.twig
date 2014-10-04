@@ -1,18 +1,12 @@
 {% extends '::base.html.twig' %}
+{% set navigation_bar = [['homepage', 'Accueil'], ['comptebancaire', 'Compte Bancaire'], ['comptecomptable', 'Compte Comptable'], ['ecriture', 'Ecriture']] %}
 
 {% block menu %}
-    <li class="active">
-        <a href="{{ url('homepage') }}"><span class="glyphicon glyphicon-home"> Accueil</span></a>
-    </li>
-    <li>
-        <a href="{{ url('comptebancaire') }}"><span class="glyphicon glyphicon-list"> Compte Bancaire</span></a>
-    </li>
-    <li>
-        <a href="{{ url('comptecomptable') }}"><span class="glyphicon glyphicon-list"> Compte Comptable</span></a>
-    </li>
-    <li>
-        <a href="{{ url('ecriture') }}"><span class="glyphicon glyphicon-list"> Ecriture</span></a>
-    </li>
+    {% for item in navigation_bar %}
+        <li{% if item[0] == active_page %} class="active"{% endif%}>
+            <a href="{{ url(item[0]) }}"><span class="glyphicon glyphicon-list"> {{item[1]}}</a>
+        </li>
+    {% endfor %}
 {% endblock %}
 
 {% block pagetitle %}Bienvenue !!{% endblock %}

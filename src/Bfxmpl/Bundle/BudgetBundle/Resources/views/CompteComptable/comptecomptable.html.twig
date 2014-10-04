@@ -1,17 +1,5 @@
-{% extends '::base.html.twig' %}
-
-{% block menu %}
-    {{ parent() }}
-    <li>
-        <a href="{{ url('comptebancaire') }}"><span class="glyphicon glyphicon-list"> Compte Bancaire</span></a>
-    </li>
-    <li class="active">
-        <a href="{{ url('comptecomptable') }}"><span class="glyphicon glyphicon-list"> Compte Comptable</span></a>
-    </li>
-    <li>
-        <a href="{{ url('ecriture') }}"><span class="glyphicon glyphicon-list"> Ecriture</span></a>
-    </li>
-{% endblock %}
+{% extends 'BfxmplBudgetBundle:Home:index.html.twig' %}
+{% set active_page = "comptecomptable" %}
 
 {% block breadcrumb %}
     <li><a href="{{ url('homepage') }}">Accueil</a></li>
