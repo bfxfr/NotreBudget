@@ -19,9 +19,10 @@ class EcritureType extends AbstractType
             ->add('date')
             ->add('montant')
             ->add('sens')
-        ;
+            ->add('compteBancaire', 'entity',
+                array('class' => 'BfxmplBudgetBundle:CompteBancaire', 'property' => 'libelle'));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

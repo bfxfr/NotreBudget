@@ -2,6 +2,7 @@
 
 namespace Bfxmpl\Bundle\BudgetBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +36,16 @@ class CompteBancaire
      */
     private $banque;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Ecriture", mappedBy="compteBancaire")
+     */
+    protected $ecritures;
+
+
+    public function __construct()
+    {
+        $this->ecritures = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -90,5 +101,38 @@ class CompteBancaire
     public function getBanque()
     {
         return $this->banque;
+    }
+
+    /**
+     * Add ecritures
+     *
+     * @param \Bfxmpl\Bundle\BudgetBundle\Entity\Ecriture $ecritures
+     * @return CompteBancaire
+     */
+    public function addEcriture(\Bfxmpl\Bundle\BudgetBundle\Entity\Ecriture $ecritures)
+    {
+        $this->ecritures[] = $ecritures;
+
+        return $this;
+    }
+
+    /**
+     * Remove ecritures
+     *
+     * @param \Bfxmpl\Bundle\BudgetBundle\Entity\Ecriture $ecritures
+     */
+    public function removeEcriture(\Bfxmpl\Bundle\BudgetBundle\Entity\Ecriture $ecritures)
+    {
+        $this->ecritures->removeElement($ecritures);
+    }
+
+    /**
+     * Get ecritures
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEcritures()
+    {
+        return $this->ecritures;
     }
 }

@@ -49,6 +49,12 @@ class Ecriture
      */
     private $sens;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CompteBancaire", inversedBy="ecritures")
+     * @ORM\JoinColumn(name="comptebancaire_id", referencedColumnName="id")
+     */
+    protected $compteBancaire;
+
 
     /**
      * Get id
@@ -150,5 +156,28 @@ class Ecriture
     public function getSens()
     {
         return $this->sens;
+    }
+
+    /**
+     * Set compteBancaire
+     *
+     * @param \Bfxmpl\Bundle\BudgetBundle\Entity\CompteBancaire $compteBancaire
+     * @return Ecriture
+     */
+    public function setCompteBancaire(\Bfxmpl\Bundle\BudgetBundle\Entity\CompteBancaire $compteBancaire = null)
+    {
+        $this->compteBancaire = $compteBancaire;
+
+        return $this;
+    }
+
+    /**
+     * Get compteBancaire
+     *
+     * @return \Bfxmpl\Bundle\BudgetBundle\Entity\CompteBancaire 
+     */
+    public function getCompteBancaire()
+    {
+        return $this->compteBancaire;
     }
 }

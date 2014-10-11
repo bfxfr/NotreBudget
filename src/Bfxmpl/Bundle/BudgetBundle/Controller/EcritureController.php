@@ -2,6 +2,7 @@
 
 namespace Bfxmpl\Bundle\BudgetBundle\Controller;
 
+use Bfxmpl\Bundle\BudgetBundle\Entity\CompteBancaire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -50,6 +51,7 @@ class EcritureController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $em->persist($entity->getCompteBancaire());
             $em->persist($entity);
             $em->flush();
 
