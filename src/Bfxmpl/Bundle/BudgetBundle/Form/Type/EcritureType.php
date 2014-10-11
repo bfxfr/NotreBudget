@@ -20,7 +20,9 @@ class EcritureType extends AbstractType
             ->add('montant')
             ->add('sens')
             ->add('compteBancaire', 'entity',
-                array('class' => 'BfxmplBudgetBundle:CompteBancaire', 'property' => 'libelle'));
+                array('class' => 'BfxmplBudgetBundle:CompteBancaire', 'property' => 'libelle'))
+            ->add('compteComptable', 'entity',
+                array('class' => 'BfxmplBudgetBundle:CompteComptable', 'property' => 'libelle'));;
     }
 
     /**

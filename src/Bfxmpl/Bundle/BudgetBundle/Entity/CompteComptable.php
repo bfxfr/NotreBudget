@@ -35,6 +35,11 @@ class CompteComptable
      */
     private $libelle;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Ecriture", mappedBy="compteComptable")
+     */
+    protected $ecritures;
+
 
     /**
      * Get id
@@ -90,5 +95,38 @@ class CompteComptable
     public function getLibelle()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Add ecritures
+     *
+     * @param \Bfxmpl\Bundle\BudgetBundle\Entity\Ecriture $ecritures
+     * @return CompteBancaire
+     */
+    public function addEcriture(\Bfxmpl\Bundle\BudgetBundle\Entity\Ecriture $ecritures)
+    {
+        $this->ecritures[] = $ecritures;
+
+        return $this;
+    }
+
+    /**
+     * Remove ecritures
+     *
+     * @param \Bfxmpl\Bundle\BudgetBundle\Entity\Ecriture $ecritures
+     */
+    public function removeEcriture(\Bfxmpl\Bundle\BudgetBundle\Entity\Ecriture $ecritures)
+    {
+        $this->ecritures->removeElement($ecritures);
+    }
+
+    /**
+     * Get ecritures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEcritures()
+    {
+        return $this->ecritures;
     }
 }

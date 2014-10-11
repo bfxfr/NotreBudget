@@ -55,6 +55,12 @@ class Ecriture
      */
     protected $compteBancaire;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CompteComptable", inversedBy="ecritures")
+     * @ORM\JoinColumn(name="comptecomptable_id", referencedColumnName="id")
+     */
+    protected $compteComptable;
+
 
     /**
      * Get id
@@ -179,5 +185,28 @@ class Ecriture
     public function getCompteBancaire()
     {
         return $this->compteBancaire;
+    }
+
+    /**
+     * Set compteComptable
+     *
+     * @param \Bfxmpl\Bundle\BudgetBundle\Entity\CompteComptable $compteComptable
+     * @return Ecriture
+     */
+    public function setCompteBComptable(\Bfxmpl\Bundle\BudgetBundle\Entity\CompteComptable $compteComptable = null)
+    {
+        $this->compteComptable = $compteComptable;
+
+        return $this;
+    }
+
+    /**
+     * Get compteComptable
+     *
+     * @return \Bfxmpl\Bundle\BudgetBundle\Entity\CompteComptable
+     */
+    public function getCompteComptable()
+    {
+        return $this->compteComptable;
     }
 }

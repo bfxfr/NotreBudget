@@ -52,6 +52,7 @@ class EcritureController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity->getCompteBancaire());
+            $em->persist($entity->getCompteComptable());
             $em->persist($entity);
             $em->flush();
 
