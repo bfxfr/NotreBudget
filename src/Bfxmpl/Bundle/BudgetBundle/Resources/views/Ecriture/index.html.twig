@@ -12,6 +12,8 @@
                 <th>Date</th>
                 <th>Montant</th>
                 <th>Sens</th>
+                <th>Compte Bancaire</th>
+                <th>Compte Comptable</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -23,6 +25,16 @@
                     <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                     <td>{{ entity.montant }}</td>
                     <td>{{ entity.sens }}</td>
+                    <td>
+                        {% if entity.compteBancaire is not empty %}
+                            {{ entity.compteBancaire.libelle }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if entity.compteComptable is not empty %}
+                            {{ entity.compteComptable.libelle }}
+                        {% endif %}
+                    </td>
                     <td>
                         <button type="button" class="btn btn-default btn-default">
                             <a href="{{ path('ecriture_show', { 'id': entity.id }) }}">

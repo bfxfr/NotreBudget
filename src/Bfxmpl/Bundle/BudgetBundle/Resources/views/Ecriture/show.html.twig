@@ -23,6 +23,22 @@
             <th>Sens</th>
             <td>{{ entity.sens }}</td>
         </tr>
+        <tr>
+            <th>Compte Bancaire</th>
+            <td>
+                {% if entity.compteBancaire is not empty %}
+                    {{ entity.compteBancaire.libelle }}
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Compte Comptable</th>
+            <td>
+                {% if entity.compteComptable is not empty %}
+                    {{ entity.compteComptable.libelle }}
+                {% endif %}
+            </td>
+        </tr>
         </tbody>
     </table>
 
